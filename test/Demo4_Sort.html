@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app>
+<head lang="en">
+    <script src="../angularJS/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div ng-controller="controller">
+    查找：<input ng-model="query">
+    排序：<select ng-model="order">
+    <option value="name">name</option>
+    <option value="age">age</option>
+    </select>
+    <ul class="persons">
+        <li ng-repeat="person in persons | filter:query | orderBy:order">
+            {{person.name}}
+            {{person.age}}
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    function controller($scope){
+        $scope.persons = [
+            {"name":"cindy1","age":10},
+            {"name":"eindy11","age":12},
+            {"name":"vindy12","age":13},
+            {"name":"gindy13","age":14},
+            {"name":"cindy14","age":15}
+        ]
+        $scope.order = "age";
+    }
+</script>
+</body>
+</html>

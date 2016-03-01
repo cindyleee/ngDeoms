@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <script src="../angularJS/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class="alert-success">
+        <p>Happy New Year</p>
+    </div>
+    <div class="myDirective"></div>
+    <myDirective>hello Cindy</myDirective>
+    <hr>
+    <test>test directive</test>
+<script>
+    var myModule = angular.module("myApp", []);
+    myModule.directive("myDirective", function () {
+                return{
+                    restrict: 'AECM',
+                    template: '<div>hello,my directive</div>',
+                    replace: false//是否支持替换
+                }
+            }
+    );
+    myModule.directive("test", function () {
+        return{
+            restrict: 'AECM',
+            replace: false,//是否支持替换
+            transclude: true,
+            template: "<div>first div<div ng-transclude> wuwu!</div></div>"
+        }
+    });
+</script>
+</body>
+</html>

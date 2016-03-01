@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="MyModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../angularJS/angular-1.3.9/angular.min.js"></script>
+    <script src="../../angularJS/angular-1.3.9/angular-animate.js"></script>
+    <script src="../../angularJS/angular-ui-router.js"></script>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+    <script src="js/controllers.js"></script>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<table ng-controller="RestaurantCtrl" class="table">
+    <tr ng-repeat="restaurant in directory" ng-click="selectRestaurant($index)" ng-class="{selected:$index == selectedRow}">
+        <td>{{restaurant.name}}</td>
+        <td>{{restaurant.cuisine}}</td>
+    </tr>
+</table>
+<div ng-controller="CartCtrl">
+    <span>带折扣的购物车（满100 -10）</span>
+    <input ng-model="temp.num">
+    <div ng-repeat="item in items">
+        <span>{{item.title}}</span>
+        <input ng-model="item.quantity">
+        <input ng-model="item.price">
+        <span>{{item.price | currency}}</span>
+        <span>{{item.quantity * item.price | currency}}</span>
+    </div>
+    <div>
+        总价 : {{totalCart() |currency}}
+    </div>
+    <div>
+        折扣 : {{bill.discount |currency}}
+    </div>
+    <div>
+        折后价 : {{subtotal() |currency}}
+    </div>
+</div>
+<div>
+    <span>Service测试</span>
+
+    <div ng-controller="BookListCtrl">
+        <ul ng-repeat="book in bookList">
+            <li>{{book.name}}</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

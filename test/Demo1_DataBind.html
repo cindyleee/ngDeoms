@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app>
+<head lang="en">
+    <script src="../angularJS/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div ng-controller="testController">
+    <b > Invoice:</b>
+    <br>
+    <table>
+        <tr>
+            <td>
+                num1
+            </td>
+            <td>
+                num2
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="number" min="0" max="10" ng-model="number1" required>
+            </td>
+            <td>
+                <input type="number" min="0" max="10" ng-model="number2" required>
+            </td>
+        </tr>
+    </table>
+    <b>Total:</b> {{number1 * number2 | currency}}
+</div>
+<script type="text/javascript">
+    function testController($scope){
+        $scope.number1 = 2.5;
+        $scope.number2 = 2;
+    }
+
+</script>
+<script src="../js/ClockController.js"></script>
+<input ng-model="name" type="text" placeholder="Your name">
+<h1>Hello {{ name }}</h1>
+<div ng-controller='ClockController'>
+    <h5>{{ clock }}</h5>
+</div>
+</body>
+</html>

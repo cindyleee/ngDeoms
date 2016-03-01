@@ -1,0 +1,16 @@
+<!doctype html>
+<!--标记ng-app告诉AngularJS处理整个HTML页并引导应用：-->
+<html lang="en" ng-app>
+<head>
+    <script src="angularJS/angular-1.3.9/angular.min.js"></script>
+</head>
+<body>
+<!--文本输入指令<input ng-model="yourname" />绑定到一个叫yourname的模型变量。
+    双大括号标记将yourname模型变量添加到问候语文本。-->
+Your name: <input type="text" ng-model="yourname" placeholder="World">
+<input type="number" ng-model="number1" required>
+<hr>
+Hello {{yourname || 'World'}}!
+Hello {{number1 | currency}}
+</body>
+</html>

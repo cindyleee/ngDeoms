@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="../angularJS/angular.min.js"></script>
+    <title></title>
+</head>
+<body>
+<script src="../js/FirstController.js"></script>
+
+<div ng-controller="FirstController">
+    <button ng-click="add(1)">增加</button>
+    <button ng-click="subtract(1)">减少</button>
+    <h1>{{counter}}</h1>
+</div>
+
+
+<script src="../js/ParentController.js"></script>
+<script src="../js/ChildController.js"></script>
+<div ng-controller="ParentController">
+    <div ng-controller="ChildController2">
+        <button ng-click="sayHello()">Click to say hello</button>
+        <h1>子级作用域访问父级作用域对象Person={{person}}</h1>
+    </div>
+    <h1>父级作用域中的对象Person={{person}}</h1>
+</div>
+</body>
+</html>

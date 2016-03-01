@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <script src="../angularJS/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input.ng-invalid {
+            border: 1px solid red;
+        }
+        input.ng-valid {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="ctrl">
+    name:<input type="text" ng-model="name" required>
+    <button ng-click="reset()">reset</button>
+    <br>
+    输入的名称：{{name}}
+    <br>
+    转为大写:{{name | uppercase}}
+    <br>首字母转为大写：{{name |lowercase| capitalize}}
+    <br>首字母转为小写：{{name |uppercase| lowercase2}}
+</div>
+<div>
+    <form name="form" >
+        <label name="email">Your email</label>
+        <input type="email"
+               name="email"
+               ng-model="email" placeholder="Email Address" />
+        <br>
+        <label name="phone">Your phone</label>
+        <input type="number"
+                ng-maxlength="11" ng-minlength="6"
+               ng-model="phone" placeholder="Phone Number" />
+    </form>
+    <script>
+        console.log(form.email.$invalid)
+    </script>
+</div>
+<script type="text/javascript">
+        function ctrl($scope)
+        {
+            var str = "init";
+            $scope.name = str;
+            $scope.reset = function(){
+                $scope.name = str;
+            }
+
+        }
+        var module  = angular.module('myApp', []);
+        module.filter('capitalize', function() {
+                return function(input) {
+                    if (input) {
+                        return input[0].toUpperCase() + input.slice(1);
+                    }
+                }});
+        module.filter('lowercase2', function() {
+                    return function(input) {
+                        if (input) {
+                            return input[0].toLowerCase() + input.slice(1);
+                        }
+                    }});
+</script>
+</body>
+</html>

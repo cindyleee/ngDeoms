@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../angularJS/angular.min.js"></script>
+    <script src="ScopeAt.js"></script>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+</head>
+<body>
+<div ng-controller="MyCtrl">
+    <p>{{ctrlFlavor}}</p>
+    <drink flavor="{{ctrlFlavor}}">
+    </drink>
+</div>
+</body>
+</html>

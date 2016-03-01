@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../../angularJS/angular.min.js"></script>
+    <script src="ScopeFalse.js"></script>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
+    <style>
+        div{
+            padding: 6px;
+        }
+        div.container {
+            border: 1px solid black;
+        }
+        div.my-info {
+            border: 1px solid blue;
+        }
+        div.my-directive{
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+<div ng-app="MyApp">
+    <div class="container" ng-controller="MyController">
+        <div class="my-info">指令外的名字是：<span ng-bind="name"></span>
+            <!-- 使用"ng-bind"防止网络状态不佳时出现没有被赋值表达式   -->
+            <br/>指令外的年龄是：<span ng-bind="age"></span>
+        </div>
+        <!-- 使用属性声明指令 -->
+        <div class="my-directive" my-directive></div>
+    </div>
+</div>
+</body>
+</html>

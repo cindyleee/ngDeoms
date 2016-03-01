@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <script src="../angularJS/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<div ng-controller="myAppCtrl">
+{{name | test}}
+</div>
+<body>
+<script type="text/javascript">
+    /*创建一个自己的模块*/
+    var myModule = angular.module('myApp',[]);
+    /*模块的基础上创建过滤器*/
+    myModule.filter('test',function(){
+        return function(name){
+            return "hello "+name+"!";
+        }
+    });
+    /*模块基础上创建控制器*/
+    myModule.controller('myAppCtrl',['$scope',function($scope){
+        $scope.name='Cindy';
+    }]);
+</script>
+</body>
+</html>

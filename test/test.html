@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="http://apps.bdimg.com/libs/angular.js/1.2.16/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="myAppCtrl">
+    {{name | test }}
+</div>
+<script type="text/javascript">
+    var myAppModule = angular.module('myApp',[]);
+
+    myAppModule.filter('test',function(){
+        return function(name){
+            return 'hello, '+name+'!';
+        };
+    });
+
+    myAppModule.controller('myAppCtrl',['$scope',function($scope){
+        $scope.name='lixue';
+    }]);
+</script>
+</body>
+</html>
